@@ -1,0 +1,4 @@
+include ':profile'
+include ':core'
+include ':app'
+rootProject.name = "Real Made"
