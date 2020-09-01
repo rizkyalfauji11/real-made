@@ -22,7 +22,7 @@ class MovieRepository(
             override suspend fun createCall(): Flow<ApiResponse<List<MovieResponse>>> =
                 remoteDataSource.getAllMovies()
 
-            override fun shouldFetchData(it: List<Movie>?): Boolean = true
+            override fun shouldFetchData(it: List<Movie>?): Boolean = it?.isEmpty() as Boolean
 
             override fun loadFromDatabase(): Flow<List<Movie>> =
                 localDataSource.getAllMovies().map { DataMapper.mapEntitiesToDomain(it) }
