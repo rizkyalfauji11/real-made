@@ -17,27 +17,12 @@ class MovieRepository(
     private val localDataSource: LocalDataSource,
     private val appExecutors: AppExecutors
 ) : MovieRepositoryImpl {
-
-    companion object {
-        @Volatile
-        private var instance: MovieRepository? = null
-
-        fun getInstance(
-            remoteDataSource: RemoteDataSource,
-            localDataSource: LocalDataSource,
-            appExecutors: AppExecutors
-        ): MovieRepository =
-            instance ?: synchronized(this) {
-                instance ?: MovieRepository(remoteDataSource, localDataSource, appExecutors)
-            }
-    }
-
     override fun getAllMovies(): Flow<Resource<List<Movie>>> =
         object : NetworkBoundResource<List<Movie>, List<MovieResponse>>(appExecutors) {
             override suspend fun createCall(): Flow<ApiResponse<List<MovieResponse>>> =
                 remoteDataSource.getAllMovies()
 
-            override fun shouldFetchData(it: List<Movie>?): Boolean = it?.isEmpty() as Boolean
+            override fun shouldFetchData(it: List<Movie>?): Boolean = true
 
             override fun loadFromDatabase(): Flow<List<Movie>> =
                 localDataSource.getAllMovies().map { DataMapper.mapEntitiesToDomain(it) }

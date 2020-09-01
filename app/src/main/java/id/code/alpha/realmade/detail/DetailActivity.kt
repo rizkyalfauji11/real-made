@@ -15,7 +15,7 @@ class DetailActivity : AppCompatActivity() {
     private val detailViewModel: DetailViewModel by viewModel()
 
     companion object {
-        const val EXTRA_DATA = "extra_data";
+        const val EXTRA_DATA = "extra_data"
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

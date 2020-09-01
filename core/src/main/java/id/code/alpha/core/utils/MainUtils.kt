@@ -3,7 +3,6 @@ package id.code.alpha.core.utils
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.DefaultLifecycleObserver
 import androidx.lifecycle.LifecycleOwner
-import androidx.lifecycle.Observer
 import kotlin.properties.ReadOnlyProperty
 import kotlin.reflect.KProperty
 
@@ -17,7 +16,7 @@ fun <T> Fragment.viewLifecycleLazy(initialise: () -> T): ReadOnlyProperty<Fragme
         init {
             this@viewLifecycleLazy
                 .viewLifecycleOwnerLiveData
-                .observe(this@viewLifecycleLazy, Observer { newLifecycleOwner ->
+                .observe(this@viewLifecycleLazy, { newLifecycleOwner ->
                     viewLifecycleOwner
                         ?.lifecycle
                         ?.removeObserver(this)

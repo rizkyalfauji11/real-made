@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import id.code.alpha.core.ui.MovieListAdapter
 import id.code.alpha.core.utils.viewLifecycleLazy
@@ -36,7 +35,7 @@ class FavoriteFragment : Fragment() {
             startActivity(intent)
         }
 
-        favoriteViewModel.favoriteMovies.observe(viewLifecycleOwner, Observer {
+        favoriteViewModel.favoriteMovies.observe(viewLifecycleOwner, {
             movieListAdapter.submitList(it)
         })
 

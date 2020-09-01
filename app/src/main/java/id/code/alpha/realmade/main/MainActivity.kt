@@ -45,13 +45,13 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
+        return when (item.itemId) {
             R.id.menuProfile -> {
                 val uri = Uri.parse("alpha://profile")
                 startActivity(Intent(Intent.ACTION_VIEW, uri))
-                return true
+                true
             }
-            else -> return super.onOptionsItemSelected(item)
+            else -> super.onOptionsItemSelected(item)
         }
     }
 }
