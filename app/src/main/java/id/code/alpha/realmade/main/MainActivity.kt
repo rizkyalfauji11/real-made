@@ -11,6 +11,7 @@ import id.code.alpha.realmade.R
 import id.code.alpha.realmade.databinding.ActivityMainBinding
 import id.code.alpha.realmade.main.favorite.FavoriteFragment
 import id.code.alpha.realmade.main.home.HomeFragment
+import id.code.alpha.realmade.profile.ProfileActivity
 
 class MainActivity : AppCompatActivity() {
     private lateinit var viewBinding: ActivityMainBinding
@@ -30,13 +31,8 @@ class MainActivity : AppCompatActivity() {
                 )
             )
 
-        with(viewBinding.viewPager) {
-            adapter = movieAdapter
-        }
-
-        with(viewBinding.tabLayout) {
-            setupWithViewPager(viewBinding.viewPager)
-        }
+        viewBinding.viewPager.adapter = movieAdapter
+        viewBinding.tabLayout.setupWithViewPager(viewBinding.viewPager)
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -46,11 +42,17 @@ class MainActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
-            R.id.menuProfile -> {
+            R.id.menuFavorite -> {
                 val uri = Uri.parse("alpha://favorite")
                 startActivity(Intent(Intent.ACTION_VIEW, uri))
                 true
             }
+
+            R.id.menuProfile -> {
+                startActivity(Intent(this, ProfileActivity::class.java))
+                true
+            }
+
             else -> super.onOptionsItemSelected(item)
         }
     }

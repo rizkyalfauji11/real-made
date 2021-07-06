@@ -14,10 +14,6 @@ class DetailActivity : AppCompatActivity() {
     private lateinit var viewBinding: ActivityDetailBinding
     private val detailViewModel: DetailViewModel by viewModel()
 
-    companion object {
-        const val EXTRA_DATA = "extra_data"
-    }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         viewBinding = ActivityDetailBinding.inflate(layoutInflater)
@@ -65,4 +61,7 @@ class DetailActivity : AppCompatActivity() {
                 .into(viewBinding.iconFavorite)
     }
 
+    companion object {
+        const val EXTRA_DATA = "extra_data"
+    }
 }
