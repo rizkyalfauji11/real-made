@@ -4,6 +4,6 @@
     <item
         android:id="@+id/menuProfile"
         android:icon="@drawable/ic_profile"
-        android:title="@string/title_profile"
+        android:title="@string/title_favorite"
         app:showAsAction="always" />
 </menu>
