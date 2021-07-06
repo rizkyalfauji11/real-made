@@ -14,6 +14,6 @@ class MovieViewPagerAdapter(
 
     override fun getItem(position: Int): Fragment = fragments[position]
 
-    override fun getPageTitle(position: Int): CharSequence? =
+    override fun getPageTitle(position: Int): CharSequence =
         titles[position]
 }

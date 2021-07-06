@@ -10,10 +10,10 @@ abstract class NetworkBoundResource<ResultType, RequestType>(
 ) {
     private val result: Flow<Resource<ResultType>> =
         flow {
-            emit(Resource.Loading<ResultType>())
+            emit(Resource.Loading())
             val dbResource = loadFromDatabase().first()
             if (shouldFetchData(dbResource)) {
-                emit(Resource.Loading<ResultType>())
+                emit(Resource.Loading())
                 when (val apiResponse = createCall().first()) {
                     is ApiResponse.Success -> {
                         saveCallResult(apiResponse.data)
