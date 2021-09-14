@@ -8,4 +8,6 @@
     <string name="author_name">Rizky Alfa Uji Gultom</string>
     <string name="workAt">Android Developer at 99.co</string>
     <string name="title_profile">Profile</string>
+    <string name="type_popular">popular</string>
+    <string name="type_top_rated">top_rated</string>
 </resources>
