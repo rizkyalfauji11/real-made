@@ -6,8 +6,8 @@ import id.code.alpha.core.domain.repository.MovieRepositoryImpl
 import kotlinx.coroutines.flow.Flow
 
 class MovieInteractor(private val movieRepository: MovieRepositoryImpl) : MovieUseCase {
-    override fun getAllMovies(menu: String): Flow<Resource<List<Movie>>> =
-        movieRepository.getAllMovies(menu)
+    override fun getAllMovies(menu: String, page: Int?): Flow<Resource<List<Movie>>> =
+        movieRepository.getAllMovies(menu, page)
 
     override fun getFavoriteMovies(): Flow<List<Movie>> =
         movieRepository.getFavoriteMovies()

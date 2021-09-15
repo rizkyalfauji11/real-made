@@ -13,10 +13,10 @@ import kotlinx.coroutines.flow.flowOn
 
 class RemoteDataSource(private val apiService: ApiService) {
 
-    suspend fun getAllMovies(menu: String): Flow<ApiResponse<List<PopularMovie>>> =
+    suspend fun getAllMovies(menu: String, page: Int?): Flow<ApiResponse<List<PopularMovie>>> =
         flow {
             try {
-                val response = apiService.getMovieList(menu, BuildConfig.API_KEY)
+                val response = apiService.getMovieList(menu, BuildConfig.API_KEY, page)
                 val dataArray = response.results
                 if (dataArray != null)
                     if (dataArray.isNotEmpty()) {

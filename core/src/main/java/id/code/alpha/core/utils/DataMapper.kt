@@ -1,12 +1,11 @@
 package id.code.alpha.core.utils
 
 import id.code.alpha.core.data.source.local.entity.MovieEntity
-import id.code.alpha.core.data.source.remote.response.MovieResponse
 import id.code.alpha.core.data.source.remote.response.popular.PopularMovie
 import id.code.alpha.core.domain.model.Movie
 
 object DataMapper {
-    fun mapResponsesToEntities(input: List<PopularMovie>): List<MovieEntity> =
+    fun mapResponsesToEntities(input: List<PopularMovie>, type: String?, page: Int?): List<MovieEntity> =
         input.map {
             MovieEntity(
                 id = it.id?: 0,
@@ -17,7 +16,9 @@ object DataMapper {
                 backdropPath = it.backdropPath,
                 popularity = it.popularity,
                 posterPath = it.posterPath,
-                releaseDate = it.releaseDate
+                releaseDate = it.releaseDate,
+                page = page,
+                movieType = type
             )
         }
 
@@ -33,6 +34,8 @@ object DataMapper {
                 popularity = it.popularity,
                 posterPath = it.posterPath,
                 releaseDate = it.releaseDate,
+                movieType = it.movieType,
+                page = it.page,
                 isFavorite = it.isFavorite ?: false
             )
         }
@@ -47,6 +50,7 @@ object DataMapper {
             backdropPath = it.backdropPath,
             popularity = it.popularity,
             posterPath = it.posterPath,
+            movieType = it.movieType,
             releaseDate = it.releaseDate
         )
 }

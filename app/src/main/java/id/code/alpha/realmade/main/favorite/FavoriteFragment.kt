@@ -12,6 +12,7 @@ import id.code.alpha.core.utils.viewLifecycleLazy
 import id.code.alpha.realmade.R
 import id.code.alpha.realmade.databinding.FragmentFavoriteBinding
 import id.code.alpha.realmade.detail.DetailActivity
+import id.code.alpha.realmade.main.dialog.MovieTypeDialogFragment
 import org.koin.android.viewmodel.ext.android.viewModel
 
 class FavoriteFragment : Fragment() {
@@ -28,20 +29,19 @@ class FavoriteFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        val movieListAdapter = MovieListAdapter {
+        /*val movieListAdapter = MovieListAdapter {
             val intent = Intent(activity, DetailActivity::class.java)
             intent.putExtra(DetailActivity.EXTRA_DATA, it)
             startActivity(intent)
         }
 
         favoriteViewModel.favoriteMovies.observe(viewLifecycleOwner, {
-            movieListAdapter.submitList(it)
-        })
+//            movieListAdapter.submitList(it)
+        })*/
 
-        with(viewBinding?.rvHome) {
+        /*with(viewBinding?.rvHome) {
             this?.layoutManager = LinearLayoutManager(context)
             this?.adapter = movieListAdapter
-        }
+        }*/
     }
 }

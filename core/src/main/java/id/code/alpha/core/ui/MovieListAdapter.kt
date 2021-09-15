@@ -10,8 +10,8 @@ import id.code.alpha.core.BuildConfig
 import id.code.alpha.core.databinding.ItemMovieBinding
 import id.code.alpha.core.domain.model.Movie
 
-class MovieListAdapter(private val listener: (Movie) -> Unit) :
-    ListAdapter<Movie, MovieListAdapter.ViewHolder>(MyStaticDiffCallback<Movie>()) {
+class MovieListAdapter(private val movies: List<Movie>, private val listener: (Movie) -> Unit) :
+    RecyclerView.Adapter<MovieListAdapter.ViewHolder>() {
 
     class ViewHolder(private val view: ItemMovieBinding) : RecyclerView.ViewHolder(view.root) {
         fun bind(item: Movie, listener: (Movie) -> Unit) {
@@ -36,6 +36,8 @@ class MovieListAdapter(private val listener: (Movie) -> Unit) :
 
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(getItem(position), listener)
+        holder.bind(movies[position], listener)
     }
+
+    override fun getItemCount(): Int = movies.size
 }

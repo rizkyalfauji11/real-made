@@ -46,6 +46,14 @@ data class MovieEntity(
     @ColumnInfo(name = "vote_count")
     var voteCount: Double?,
 
+    @SerializedName("movie_type")
+    @ColumnInfo(name = "movie_type")
+    var movieType: String?,
+
+    @SerializedName("page")
+    @ColumnInfo(name = "page")
+    var page: Int? = 0,
+
     @SerializedName("isFavorite")
     @ColumnInfo(name = "isFavorite")
     var isFavorite: Boolean? = false

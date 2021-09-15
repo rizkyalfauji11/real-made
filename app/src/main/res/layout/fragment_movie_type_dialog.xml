@@ -2,7 +2,78 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:paddingTop="@dimen/padding_8"
+    android:paddingLeft="@dimen/padding_16"
+    android:paddingBottom="@dimen/padding_16"
+    android:paddingRight="@dimen/padding_16"
     tools:context=".main.dialog.MovieTypeDialogFragment">
 
+    <androidx.cardview.widget.CardView
+        app:cardBackgroundColor="@android:color/darker_gray"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="0dp"
+        android:id="@+id/cvSliding"
+        app:layout_constraintWidth_percent="0.2"
+        android:layout_height="4dp"/>
+
+    <TextView
+        android:text="@string/choose_type"
+        android:textSize="@dimen/text_16"
+        android:paddingBottom="@dimen/padding_16"
+        android:id="@+id/tvChooseType"
+        android:paddingTop="@dimen/padding_16"
+        app:layout_constraintTop_toBottomOf="@id/cvSliding"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <RadioGroup
+        app:layout_constraintTop_toBottomOf="@id/tvChooseType"
+        android:layout_width="match_parent"
+        android:id="@+id/rgType"
+        android:layout_height="wrap_content">
+        <RadioButton
+            android:checked="true"
+            android:id="@+id/rbPopularMovie"
+            android:text="@string/popular_movie"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <RadioButton
+            android:id="@+id/rbTopRatedMovie"
+            android:text="@string/top_rated_movie"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <RadioButton
+            android:text="@string/now_playing_movie"
+            android:id="@+id/rbNowPlayingMovie"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <RadioButton
+            android:text="@string/upcoming_movie"
+            android:id="@+id/rbUpcomingMovie"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </RadioGroup>
+
+    <androidx.legacy.widget.Space
+        app:layout_constraintTop_toBottomOf="@id/rgType"
+        android:layout_width="match_parent"
+        android:id="@+id/space"
+        android:layout_height="@dimen/padding_16"/>
+
+    <Button
+        android:id="@+id/btnMovieType"
+        android:textColor="@android:color/white"
+        android:textAllCaps="false"
+        android:text="@string/update"
+        android:background="@color/colorPrimary"
+        app:layout_constraintTop_toBottomOf="@id/space"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

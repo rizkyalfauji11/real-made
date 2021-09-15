@@ -5,7 +5,7 @@ import id.code.alpha.core.domain.model.Movie
 import kotlinx.coroutines.flow.Flow
 
 interface MovieRepositoryImpl {
-    fun getAllMovies(menu: String): Flow<Resource<List<Movie>>>
+    fun getAllMovies(menu: String, page: Int? = 0): Flow<Resource<List<Movie>>>
     fun getFavoriteMovies(): Flow<List<Movie>>
     fun setFavoriteMovie(movie: Movie, newStatus: Boolean)
 }

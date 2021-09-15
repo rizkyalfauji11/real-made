@@ -6,8 +6,8 @@ import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface MovieDao {
-    @Query("SELECT * FROM tb_movie")
-    fun getAllMovies(): Flow<List<MovieEntity>>
+    @Query("SELECT * FROM tb_movie WHERE movie_type = :type AND page = :page")
+    fun getAllMovies(type: String, page: Int?): Flow<List<MovieEntity>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertMovies(tourism: List<MovieEntity>)

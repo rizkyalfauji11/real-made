@@ -7,5 +7,5 @@ import id.code.alpha.core.domain.usecase.MovieUseCase
 
 
 open class HomeViewModel(private val movieUseCase: MovieUseCase) : ViewModel() {
-    fun getMovie(type: String) = movieUseCase.getAllMovies(type).asLiveData()
+    fun getMovie(type: String, page: Int? = 0) = movieUseCase.getAllMovies(type, page).asLiveData()
 }
