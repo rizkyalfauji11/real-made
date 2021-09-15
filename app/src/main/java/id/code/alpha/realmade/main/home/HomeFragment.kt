@@ -12,7 +12,6 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
-import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import id.code.alpha.core.data.Resource
 import id.code.alpha.core.domain.model.Movie
@@ -21,15 +20,15 @@ import id.code.alpha.core.utils.viewLifecycleLazy
 import id.code.alpha.realmade.R
 import id.code.alpha.realmade.databinding.FragmentHomeBinding
 import id.code.alpha.realmade.detail.DetailActivity
-import kotlinx.coroutines.launch
 import org.koin.android.viewmodel.ext.android.viewModel
- class HomeFragment : Fragment() {
+
+class HomeFragment : Fragment() {
 
     private val viewBinding by viewLifecycleLazy {
         view?.let { FragmentHomeBinding.bind(it) }
     }
 
-     val homeViewModel: HomeViewModel by viewModel()
+    private val homeViewModel: HomeViewModel by viewModel()
     private var movieListAdapter: MovieListAdapter? = null
 
     override fun onCreateView(
@@ -53,7 +52,7 @@ import org.koin.android.viewmodel.ext.android.viewModel
             {
                 setType(resources.getString(R.string.type_top_rated))
             },
-            3000
+            300
         )
 
         with(viewBinding?.rvHome) {
@@ -62,11 +61,11 @@ import org.koin.android.viewmodel.ext.android.viewModel
         }
     }
 
-     private fun setType(type: String){
-         homeViewModel.getMovie(type).observe(viewLifecycleOwner, moviesObserver)
-     }
+    private fun setType(type: String) {
+        homeViewModel.getMovie(type).observe(viewLifecycleOwner, moviesObserver)
+    }
 
-    private val moviesObserver = Observer<Resource<List<Movie>>>{
+    private val moviesObserver = Observer<Resource<List<Movie>>> {
         if (it != null)
             when (it) {
                 is Resource.Loading<*> -> viewBinding?.progressBar?.visibility = VISIBLE
