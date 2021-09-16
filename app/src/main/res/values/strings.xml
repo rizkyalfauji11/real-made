@@ -18,4 +18,5 @@
     <string name="top_rated_movie">Top Rated Movies</string>
     <string name="now_playing_movie">Now Playing Movie</string>
     <string name="upcoming_movie">Upcomming Movies</string>
+    <string name="please_wait">Please wait..</string>
 </resources>

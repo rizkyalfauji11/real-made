@@ -4,7 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import id.code.alpha.realmade.R
 
-class ProfileActivity : AppCompatActivity() {
+class ProfileActivity : AppCompatActivity() {z
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_profile)

@@ -9,25 +9,25 @@ data class Movie(
     @SerializedName("id")
     val id: Int,
     @SerializedName("backdropPath")
-    val backdropPath: String?,
+    val backdropPath: String? = null,
     @SerializedName("overview")
-    val overview: String?,
+    val overview: String? = null,
     @SerializedName("popularity")
-    val popularity: Double?,
+    val popularity: Double? = null,
     @SerializedName("posterPath")
-    val posterPath: String?,
+    val posterPath: String? = null,
     @SerializedName("releaseDate")
-    val releaseDate: String?,
+    val releaseDate: String? = null,
     @SerializedName("title")
-    val title: String?,
+    val title: String? = null,
     @SerializedName("voteAverage")
-    val voteAverage: Double?,
+    val voteAverage: Double? = null,
     @SerializedName("voteCount")
-    val voteCount: Double?,
+    val voteCount: Double? = null,
     @SerializedName("movieType")
-    val movieType: String?,
+    val movieType: String? = null,
     @SerializedName("page")
-    val page: Int?,
+    val page: Int? = null,
     @SerializedName("isFavorite")
-    val isFavorite: Boolean
+    val isFavorite: Boolean = false
 ) : Parcelable
