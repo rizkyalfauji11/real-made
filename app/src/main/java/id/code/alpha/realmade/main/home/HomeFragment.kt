@@ -1,5 +1,6 @@
 package id.code.alpha.realmade.main.home
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
@@ -82,15 +83,14 @@ class HomeFragment : Fragment() {
         homeViewModel.getMovie(type, page).observe(viewLifecycleOwner, moviesObserver)
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     private val moviesObserver = Observer<Resource<List<Movie>>> {
         if (it != null)
             when (it) {
                 is Resource.Loading<*> -> viewBinding?.progressBar?.visibility = VISIBLE
                 is Resource.Success<*> -> {
                     viewBinding?.progressBar?.visibility = GONE
-                    Log.e("WOW", "before")
                     if (page == 1){
-                        Log.e("WOW", "after")
                         movieList.clear()
                     }
                     it.data?.let { it1 -> movieList.addAll(it1) }

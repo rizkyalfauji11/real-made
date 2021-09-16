@@ -6,12 +6,11 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
-import id.code.alpha.core.ui.MovieViewPagerAdapter
 import id.code.alpha.realmade.R
 import id.code.alpha.realmade.databinding.ActivityMainBinding
-import id.code.alpha.realmade.main.favorite.FavoriteFragment
 import id.code.alpha.realmade.main.home.HomeFragment
 import id.code.alpha.realmade.profile.ProfileActivity
+import id.code.alpha.realmade.util.replaceFragment
 
 class MainActivity : AppCompatActivity() {
     private lateinit var viewBinding: ActivityMainBinding
@@ -20,19 +19,7 @@ class MainActivity : AppCompatActivity() {
         viewBinding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(viewBinding.root)
         setSupportActionBar(viewBinding.toolbar)
-
-        val movieAdapter =
-            MovieViewPagerAdapter(
-                supportFragmentManager,
-                mutableListOf(HomeFragment(), FavoriteFragment()),
-                mutableListOf(
-                    resources.getString(R.string.movie),
-                    resources.getString(R.string.favorite)
-                )
-            )
-
-        viewBinding.viewPager.adapter = movieAdapter
-        viewBinding.tabLayout.setupWithViewPager(viewBinding.viewPager)
+        replaceFragment(R.id.container, HomeFragment())
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

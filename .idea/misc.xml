@@ -3,6 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Project/Android/real-made/app/src/main/res/layout/activity_detail.xml" value="0.1334853090172239" />
+        <entry key="..\:/Project/Android/real-made/app/src/main/res/layout/activity_main.xml" value="0.1334853090172239" />
         <entry key="..\:/Project/Android/real-made/app/src/main/res/layout/fragment_favorite.xml" value="0.1334853090172239" />
         <entry key="..\:/Project/Android/real-made/app/src/main/res/layout/fragment_home.xml" value="0.27447916666666666" />
         <entry key="..\:/Project/Android/real-made/app/src/main/res/layout/fragment_movie_type_dialog.xml" value="0.4355108877721943" />
